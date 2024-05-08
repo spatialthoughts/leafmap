@@ -37155,7 +37155,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 
 
 <h2 id="leafmap.common.split_raster" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">split_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">tile_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">split_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">tile_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;tile&#39;</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.common.split_raster" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -37199,6 +37199,12 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
         <td><p>The number of pixels to overlap between tiles. Defaults to 0.</p></td>
         <td><code>0</code></td>
       </tr>
+      <tr>
+        <td><code>prefix</code></td>
+        <td><code>str</code></td>
+        <td><p>The prefix of the output tiles. Defaults to "tile".</p></td>
+        <td><code>&#39;tile&#39;</code></td>
+      </tr>
   </tbody>
 </table>
 <p><strong>Exceptions:</strong></p>
@@ -37218,7 +37224,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 </table>
         <details class="quote">
           <summary>Source code in <code>leafmap/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">split_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">tile_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">split_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">tile_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;tile&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Split a raster into tiles.</span>
 
 <span class="sd">    Args:</span>
@@ -37226,6 +37232,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
 <span class="sd">        out_dir (str): The path to the output directory.</span>
 <span class="sd">        tile_size (int | tuple, optional): The size of the tiles. Can be an integer or a tuple of (width, height). Defaults to 256.</span>
 <span class="sd">        overlap (int, optional): The number of pixels to overlap between tiles. Defaults to 0.</span>
+<span class="sd">        prefix (str, optional): The prefix of the output tiles. Defaults to &quot;tile&quot;.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        ImportError: Raised if GDAL is not installed.</span>
@@ -37292,7 +37299,7 @@ Can be "bucket-owner" or "requester". Defaults to "bucket-owner".</p></td>
             <span class="n">tile_height</span> <span class="o">=</span> <span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span>
 
             <span class="c1"># Set the output file name</span>
-            <span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s2">/tile_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+            <span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">.tif&quot;</span>
 
             <span class="c1"># Create a new dataset for the tile</span>
             <span class="n">driver</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">GetDriverByName</span><span class="p">(</span><span class="s2">&quot;GTiff&quot;</span><span class="p">)</span>
