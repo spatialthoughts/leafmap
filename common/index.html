@@ -26468,12 +26468,15 @@ see https://numpy.org/doc/stable/user/basics.types.html. Defaults to 'uint8'.</p
 
     <span class="kn">import</span> <span class="nn">psutil</span>
 
-    <span class="n">output</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">cmdline</span><span class="p">()</span>
-
     <span class="n">on_aws</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.aws&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;ec2-user&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
-            <span class="n">on_aws</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">cmdline</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.aws&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;ec2-user&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                <span class="n">on_aws</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
     <span class="k">return</span> <span class="n">on_aws</span>
 </code></pre></div>
         </details>
