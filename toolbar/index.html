@@ -3347,6 +3347,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/91_raster_viz_gui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    91 raster viz gui
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5210,13 +5231,22 @@
                     <span class="n">readout</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                     <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;80px&quot;</span><span class="p">),</span>
                 <span class="p">)</span>
-                <span class="n">layer_settings</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span>
+                <span class="n">layer_settings</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
                     <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;gear&quot;</span><span class="p">,</span>
                     <span class="n">tooltip</span><span class="o">=</span><span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                     <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-                        <span class="n">width</span><span class="o">=</span><span class="s2">&quot;25px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;25px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;0px 0px 0px 5px&quot;</span>
+                        <span class="n">width</span><span class="o">=</span><span class="s2">&quot;25px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;25px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;0px 0px 0px 0px&quot;</span>
                     <span class="p">),</span>
                 <span class="p">)</span>
+
+                <span class="k">def</span> <span class="nf">layer_settings_click</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">tooltip</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">cog_layer_dict</span><span class="p">:</span>
+                        <span class="n">m</span><span class="o">.</span><span class="n">_add_layer_editor</span><span class="p">(</span>
+                            <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">,</span>
+                            <span class="n">layer_dict</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">cog_layer_dict</span><span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">tooltip</span><span class="p">],</span>
+                        <span class="p">)</span>
+
+                <span class="n">layer_settings</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">layer_settings_click</span><span class="p">)</span>
 
                 <span class="k">def</span> <span class="nf">layer_opacity_changed</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
