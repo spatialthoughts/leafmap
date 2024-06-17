@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -4040,6 +4040,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/92_maplibre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    92 maplibre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -7474,6 +7495,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
         <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
         <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cors_all&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a local raster dataset to the map.</span>
@@ -7498,6 +7520,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
 <span class="sd">            visible (bool, optional): Whether the layer is visible. Defaults to True.</span>
 <span class="sd">            opacity (float, optional): The opacity of the layer. Defaults to 1.0.</span>
 <span class="sd">            array_args (dict, optional): Additional arguments to pass to `array_to_memory_file` when reading the raster. Defaults to {}.</span>
+<span class="sd">            client_args (dict, optional): Additional arguments to pass to localtileserver.TileClient. Defaults to { &quot;cors_all&quot;: False }.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
         <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -7515,6 +7538,7 @@ Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
             <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">,</span>
             <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
             <span class="n">layer_name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+            <span class="n">client_args</span><span class="o">=</span><span class="n">client_args</span><span class="p">,</span>
             <span class="n">return_client</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span>
@@ -13121,7 +13145,7 @@ style_callback = lambda feat: {"fillColor": feat["properties"][&quot;color&quot;
 
 
 <h3 id="leafmap.leafmap.Map.add_local_tile" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_local_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Raster&#39;</span><span class="p">,</span> <span class="n">layer_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_local_tile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Raster&#39;</span><span class="p">,</span> <span class="n">layer_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cors_all&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_local_tile" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -13226,6 +13250,12 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <td><p>Additional arguments to pass to <code>array_to_memory_file</code> when reading the raster. Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
+      <tr>
+        <td><code>client_args</code></td>
+        <td><code>dict</code></td>
+        <td><p>Additional arguments to pass to localtileserver.TileClient. Defaults to { "cors_all": False }.</p></td>
+        <td><code>{&#39;cors_all&#39;: False}</code></td>
+      </tr>
   </tbody>
 </table>
         <details class="quote">
@@ -13245,6 +13275,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
     <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cors_all&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a local raster dataset to the map.</span>
@@ -13269,6 +13300,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 <span class="sd">        visible (bool, optional): Whether the layer is visible. Defaults to True.</span>
 <span class="sd">        opacity (float, optional): The opacity of the layer. Defaults to 1.0.</span>
 <span class="sd">        array_args (dict, optional): Additional arguments to pass to `array_to_memory_file` when reading the raster. Defaults to {}.</span>
+<span class="sd">        client_args (dict, optional): Additional arguments to pass to localtileserver.TileClient. Defaults to { &quot;cors_all&quot;: False }.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
     <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -13286,6 +13318,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">,</span>
         <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
         <span class="n">layer_name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+        <span class="n">client_args</span><span class="o">=</span><span class="n">client_args</span><span class="p">,</span>
         <span class="n">return_client</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>
@@ -16215,7 +16248,7 @@ see https://github.com/Leaflet/Leaflet.markercluster.</p></td>
 
 
 <h3 id="leafmap.leafmap.Map.add_raster" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Raster&#39;</span><span class="p">,</span> <span class="n">layer_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Raster&#39;</span><span class="p">,</span> <span class="n">layer_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cors_all&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.leafmap.Map.add_raster" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -16320,6 +16353,12 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <td><p>Additional arguments to pass to <code>array_to_memory_file</code> when reading the raster. Defaults to {}.</p></td>
         <td><code>{}</code></td>
       </tr>
+      <tr>
+        <td><code>client_args</code></td>
+        <td><code>dict</code></td>
+        <td><p>Additional arguments to pass to localtileserver.TileClient. Defaults to { "cors_all": False }.</p></td>
+        <td><code>{&#39;cors_all&#39;: False}</code></td>
+      </tr>
   </tbody>
 </table>
         <details class="quote">
@@ -16339,6 +16378,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
     <span class="n">array_args</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cors_all&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a local raster dataset to the map.</span>
@@ -16363,6 +16403,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 <span class="sd">        visible (bool, optional): Whether the layer is visible. Defaults to True.</span>
 <span class="sd">        opacity (float, optional): The opacity of the layer. Defaults to 1.0.</span>
 <span class="sd">        array_args (dict, optional): Additional arguments to pass to `array_to_memory_file` when reading the raster. Defaults to {}.</span>
+<span class="sd">        client_args (dict, optional): Additional arguments to pass to localtileserver.TileClient. Defaults to { &quot;cors_all&quot;: False }.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
     <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -16380,6 +16421,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <span class="n">opacity</span><span class="o">=</span><span class="n">opacity</span><span class="p">,</span>
         <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
         <span class="n">layer_name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
+        <span class="n">client_args</span><span class="o">=</span><span class="n">client_args</span><span class="p">,</span>
         <span class="n">return_client</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span>

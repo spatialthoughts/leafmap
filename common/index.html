@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -2340,6 +2340,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.pandas_to_geojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      pandas_to_geojson()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.planet_biannual_tiles_tropical" class="md-nav__link">
     <span class="md-ellipsis">
       planet_biannual_tiles_tropical()
@@ -2964,6 +2973,15 @@
   <a href="#leafmap.common.vector_col_names" class="md-nav__link">
     <span class="md-ellipsis">
       vector_col_names()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.vector_geom_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      vector_geom_type()
     </span>
   </a>
   
@@ -5561,6 +5579,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/92_maplibre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    92 maplibre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -7275,6 +7314,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.pandas_to_geojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      pandas_to_geojson()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.planet_biannual_tiles_tropical" class="md-nav__link">
     <span class="md-ellipsis">
       planet_biannual_tiles_tropical()
@@ -7899,6 +7947,15 @@
   <a href="#leafmap.common.vector_col_names" class="md-nav__link">
     <span class="md-ellipsis">
       vector_col_names()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.vector_geom_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      vector_geom_type()
     </span>
   </a>
   
@@ -18415,7 +18472,8 @@ leafmap.download_files(urls, out_dir="models", multi_part=True)</p>
       <tr>
         <td><code>first_only</code></td>
         <td><code>bool</code></td>
-        <td><p>Whether to return the geometry type of the first feature in the GeoDataFrame. Defaults to True.</p></td>
+        <td><p>Whether to return the geometry type of the f
+irst feature in the GeoDataFrame. Defaults to True.</p></td>
         <td><code>True</code></td>
       </tr>
   </tbody>
@@ -18431,7 +18489,8 @@ leafmap.download_files(urls, out_dir="models", multi_part=True)</p>
   <tbody>
     <tr>
       <td><code>str</code></td>
-      <td><p>The geometry type of the GeoDataFrame, such as Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon.
+      <td><p>The geometry type of the GeoDataFrame, such as Point, LineString,
+    Polygon, MultiPoint, MultiLineString, MultiPolygon.
     For more info, see https://shapely.readthedocs.io/en/stable/manual.html</p></td>
     </tr>
   </tbody>
@@ -18443,10 +18502,12 @@ leafmap.download_files(urls, out_dir="models", multi_part=True)</p>
 
 <span class="sd">    Args:</span>
 <span class="sd">        gdf (gpd.GeoDataFrame): A GeoDataFrame.</span>
-<span class="sd">        first_only (bool, optional): Whether to return the geometry type of the first feature in the GeoDataFrame. Defaults to True.</span>
+<span class="sd">        first_only (bool, optional): Whether to return the geometry type of the f</span>
+<span class="sd">            irst feature in the GeoDataFrame. Defaults to True.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        str: The geometry type of the GeoDataFrame, such as Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon.</span>
+<span class="sd">        str: The geometry type of the GeoDataFrame, such as Point, LineString,</span>
+<span class="sd">            Polygon, MultiPoint, MultiLineString, MultiPolygon.</span>
 <span class="sd">            For more info, see https://shapely.readthedocs.io/en/stable/manual.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
@@ -21778,7 +21839,7 @@ Source code adapted from https://github.com/mapbox/rasterio/blob/master/rasterio
 
 
 <h2 id="leafmap.common.get_local_tile_layer" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">get_local_tile_layer</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tile_format</span><span class="o">=</span><span class="s1">&#39;ipyleaflet&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Local COG&#39;</span><span class="p">,</span> <span class="n">return_client</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">get_local_tile_layer</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indexes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tile_format</span><span class="o">=</span><span class="s1">&#39;ipyleaflet&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;Local COG&#39;</span><span class="p">,</span> <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cors_all&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">return_client</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
 
 
 <a href="#leafmap.common.get_local_tile_layer" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -21871,6 +21932,12 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
         <td><code>&#39;Local COG&#39;</code></td>
       </tr>
       <tr>
+        <td><code>client_args</code></td>
+        <td><code>dict</code></td>
+        <td><p>Additional arguments to pass to the TileClient. Defaults to {}.</p></td>
+        <td><code>{&#39;cors_all&#39;: False}</code></td>
+      </tr>
+      <tr>
         <td><code>return_client</code></td>
         <td><code>bool</code></td>
         <td><p>If True, the tile client will be returned. Defaults to False.</p></td>
@@ -21913,6 +21980,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
     <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">tile_format</span><span class="o">=</span><span class="s2">&quot;ipyleaflet&quot;</span><span class="p">,</span>
     <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Local COG&quot;</span><span class="p">,</span>
+    <span class="n">client_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cors_all&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="n">return_client</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -21936,6 +22004,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
 <span class="sd">        attribution (str, optional): Attribution for the source raster. This defaults to a message about it being a local file.. Defaults to None.</span>
 <span class="sd">        tile_format (str, optional): The tile layer format. Can be either ipyleaflet or folium. Defaults to &quot;ipyleaflet&quot;.</span>
 <span class="sd">        layer_name (str, optional): The layer name to use. Defaults to None.</span>
+<span class="sd">        client_args (dict, optional): Additional arguments to pass to the TileClient. Defaults to {}.</span>
 <span class="sd">        return_client (bool, optional): If True, the tile client will be returned. Defaults to False.</span>
 <span class="sd">        quiet (bool, optional): If True, the error messages will be suppressed. Defaults to False.</span>
 
@@ -22036,7 +22105,7 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = &#39;proxy/{port}&#39;
             <span class="n">layer_name</span> <span class="o">=</span> <span class="s2">&quot;LocalTile_&quot;</span> <span class="o">+</span> <span class="n">random_string</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DatasetReader</span><span class="p">):</span>
-        <span class="n">tile_client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">)</span>
+        <span class="n">tile_client</span> <span class="o">=</span> <span class="n">TileClient</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">,</span> <span class="o">**</span><span class="n">client_args</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">tile_client</span> <span class="o">=</span> <span class="n">source</span>
 
@@ -30631,6 +30700,151 @@ os.environ[&#39;LOCALTILESERVER_CLIENT_PREFIX&#39;] = f&#39;{os.environ[&#39;JUP
 
 
 
+<h2 id="leafmap.common.pandas_to_geojson" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">pandas_to_geojson</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">geometry_type</span><span class="o">=</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.pandas_to_geojson" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert a DataFrame to a GeoJSON format.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>df</code></td>
+        <td><code>pd.DataFrame</code></td>
+        <td><p>The input DataFrame containing the data.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>coordinates</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of two column names representing the
+longitude and latitude coordinates.</p></td>
+        <td><code>[&#39;lng&#39;, &#39;lat&#39;]</code></td>
+      </tr>
+      <tr>
+        <td><code>geometry_type</code></td>
+        <td><code>str</code></td>
+        <td><p>The type of geometry for the GeoJSON features
+(e.g., "Point", "LineString", "Polygon").</p></td>
+        <td><code>&#39;Point&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>properties</code></td>
+        <td><code>list</code></td>
+        <td><p>A list of column names to include in the properties
+of each GeoJSON feature. If None, all columns except the coordinate
+columns are included.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>output</code></td>
+        <td><code>str</code></td>
+        <td><p>The file path to save the GeoJSON output. If None,
+the GeoJSON is not saved to a file.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>A dictionary representing the GeoJSON object.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">pandas_to_geojson</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">coordinates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lng&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">],</span>
+    <span class="n">geometry_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+    <span class="n">properties</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a DataFrame to a GeoJSON format.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (pd.DataFrame): The input DataFrame containing the data.</span>
+<span class="sd">        coordinates (list): A list of two column names representing the</span>
+<span class="sd">            longitude and latitude coordinates.</span>
+<span class="sd">        geometry_type (str): The type of geometry for the GeoJSON features</span>
+<span class="sd">            (e.g., &quot;Point&quot;, &quot;LineString&quot;, &quot;Polygon&quot;).</span>
+<span class="sd">        properties (list): A list of column names to include in the properties</span>
+<span class="sd">            of each GeoJSON feature. If None, all columns except the coordinate</span>
+<span class="sd">            columns are included.</span>
+<span class="sd">        output (str, optional): The file path to save the GeoJSON output. If None,</span>
+<span class="sd">            the GeoJSON is not saved to a file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: A dictionary representing the GeoJSON object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">):</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The input file must be a CSV or JSON file.&quot;</span><span class="p">)</span>
+
+    <span class="n">geojson</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span> <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+
+    <span class="k">if</span> <span class="n">properties</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">geometry_type</span><span class="p">,</span> <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+        <span class="p">}</span>
+        <span class="n">feature</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">coordinates</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span>
+
+        <span class="n">geojson</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">geojson</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">geojson</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h2 id="leafmap.common.planet_biannual_tiles_tropical" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">planet_biannual_tiles_tropical</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">token_name</span><span class="o">=</span><span class="s1">&#39;PLANET_API_KEY&#39;</span><span class="p">,</span> <span class="n">tile_format</span><span class="o">=</span><span class="s1">&#39;ipyleaflet&#39;</span><span class="p">)</span></code>
 
@@ -39163,6 +39377,103 @@ In this way, I don't have to keep updating pypi and conda-forge with every minor
         <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">col_names</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">col_names</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.vector_geom_type" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">vector_geom_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">first_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.vector_geom_type" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the geometry type of a vector dataset.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>gdf</code></td>
+        <td><code>gpd.GeoDataFrame</code></td>
+        <td><p>A GeoDataFrame.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>first_only</code></td>
+        <td><code>bool</code></td>
+        <td><p>Whether to return the geometry type of the
+first feature in the GeoDataFrame. Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Additional keyword arguments to pass to the geopandas.read_file function.</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>str</code></td>
+      <td><p>The geometry type of the GeoDataFrame, such as Point, LineString,
+    Polygon, MultiPoint, MultiLineString, MultiPolygon.
+    For more info, see https://shapely.readthedocs.io/en/stable/manual.html</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">vector_geom_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">first_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the geometry type of a vector dataset.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gdf (gpd.GeoDataFrame): A GeoDataFrame.</span>
+<span class="sd">        first_only (bool, optional): Whether to return the geometry type of the</span>
+<span class="sd">            first feature in the GeoDataFrame. Defaults to True.</span>
+<span class="sd">        kwargs: Additional keyword arguments to pass to the geopandas.read_file function.</span>
+
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The geometry type of the GeoDataFrame, such as Point, LineString,</span>
+<span class="sd">            Polygon, MultiPoint, MultiLineString, MultiPolygon.</span>
+<span class="sd">            For more info, see https://shapely.readthedocs.io/en/stable/manual.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">first_only</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">type</span>
 </code></pre></div>
         </details>
     </div>
