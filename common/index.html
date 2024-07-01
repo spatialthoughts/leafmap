@@ -1350,6 +1350,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.execute_notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute_notebook()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.execute_notebook_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute_notebook_dir()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.explode" class="md-nav__link">
     <span class="md-ellipsis">
       explode()
@@ -1791,9 +1809,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.github_delete_asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_delete_asset()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_get_release_assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_get_release_assets()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_get_release_id_by_tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_get_release_id_by_tag()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.github_raw_url" class="md-nav__link">
     <span class="md-ellipsis">
       github_raw_url()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_upload_asset_to_release" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_upload_asset_to_release()
     </span>
   </a>
   
@@ -7905,6 +7959,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.execute_notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute_notebook()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.execute_notebook_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute_notebook_dir()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.explode" class="md-nav__link">
     <span class="md-ellipsis">
       explode()
@@ -8346,9 +8418,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.github_delete_asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_delete_asset()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_get_release_assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_get_release_assets()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_get_release_id_by_tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_get_release_id_by_tag()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.github_raw_url" class="md-nav__link">
     <span class="md-ellipsis">
       github_raw_url()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.github_upload_asset_to_release" class="md-nav__link">
+    <span class="md-ellipsis">
+      github_upload_asset_to_release()
     </span>
   </a>
   
@@ -19051,6 +19159,118 @@ Exposes most of the documented API. Defaults to {}</p></td>
 
 
 
+<h2 id="leafmap.common.execute_notebook" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">execute_notebook</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.execute_notebook" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Executes a Jupyter notebook and save output cells</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>in_file</code></td>
+        <td><code>str</code></td>
+        <td><p>Input Jupyter notebook.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">execute_notebook</span><span class="p">(</span><span class="n">in_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Executes a Jupyter notebook and save output cells</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        in_file (str): Input Jupyter notebook.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># command = &#39;jupyter nbconvert --to notebook --execute &#39; + in_file + &#39; --inplace&#39;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;jupyter nbconvert --to notebook --execute &quot;</span><span class="si">{}</span><span class="s1">&quot; --inplace&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="n">command</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+    <span class="c1"># os.popen(command)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.execute_notebook_dir" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">execute_notebook_dir</span><span class="p">(</span><span class="n">in_dir</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.execute_notebook_dir" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Executes all Jupyter notebooks in the given directory recursively and save output cells.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>in_dir</code></td>
+        <td><code>str</code></td>
+        <td><p>Input folder containing notebooks.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">execute_notebook_dir</span><span class="p">(</span><span class="n">in_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Executes all Jupyter notebooks in the given directory recursively and save output cells.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        in_dir (str): Input folder containing notebooks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+    <span class="n">in_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">in_dir</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">in_dir</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.ipynb&quot;</span><span class="p">))</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+            <span class="n">in_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+            <span class="n">execute_notebook</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h2 id="leafmap.common.explode" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">explode</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span></code>
 
@@ -25464,6 +25684,308 @@ Available parameters can be found at https://github.com/radiantearth/stac-api-sp
 
 
 
+<h2 id="leafmap.common.github_delete_asset" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">github_delete_asset</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">asset_id</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.github_delete_asset" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Deletes an asset from a GitHub release.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>username</code></td>
+        <td><code>str</code></td>
+        <td><p>GitHub username or organization name.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>repository</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the GitHub repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>asset_id</code></td>
+        <td><code>int</code></td>
+        <td><p>ID of the asset to delete.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>access_token</code></td>
+        <td><code>str</code></td>
+        <td><p>Personal access token for authentication.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">github_delete_asset</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">asset_id</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes an asset from a GitHub release.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): GitHub username or organization name.</span>
+<span class="sd">        repository (str): Name of the GitHub repository.</span>
+<span class="sd">        asset_id (int): ID of the asset to delete.</span>
+<span class="sd">        access_token (str): Personal access token for authentication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">access_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">get_api_key</span><span class="p">(</span><span class="s2">&quot;GITHUB_API_TOKEN&quot;</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.github.com/repos/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repository</span><span class="si">}</span><span class="s2">/releases/assets/</span><span class="si">{</span><span class="n">asset_id</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;token </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github.v3+json&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully deleted asset ID: </span><span class="si">{</span><span class="n">asset_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Unable to delete asset (Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.github_get_release_assets" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">github_get_release_assets</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">release_id</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.github_get_release_assets" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Fetches the assets for a given release.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>username</code></td>
+        <td><code>str</code></td>
+        <td><p>GitHub username or organization name.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>repository</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the GitHub repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>release_id</code></td>
+        <td><code>int</code></td>
+        <td><p>ID of the release to fetch assets for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>access_token</code></td>
+        <td><code>str</code></td>
+        <td><p>Personal access token for authentication.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>list</code></td>
+      <td><p>List of assets if successful, None otherwise.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">github_get_release_assets</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">release_id</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetches the assets for a given release.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): GitHub username or organization name.</span>
+<span class="sd">        repository (str): Name of the GitHub repository.</span>
+<span class="sd">        release_id (int): ID of the release to fetch assets for.</span>
+<span class="sd">        access_token (str): Personal access token for authentication.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List of assets if successful, None otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">access_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">get_api_key</span><span class="p">(</span><span class="s2">&quot;GITHUB_API_TOKEN&quot;</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.github.com/repos/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repository</span><span class="si">}</span><span class="s2">/releases/</span><span class="si">{</span><span class="n">release_id</span><span class="si">}</span><span class="s2">/assets&quot;</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;token </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github.v3+json&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Unable to fetch assets (Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.github_get_release_id_by_tag" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">github_get_release_id_by_tag</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">tag_name</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.github_get_release_id_by_tag" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Fetches the release ID by tag name for a given GitHub repository.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>username</code></td>
+        <td><code>str</code></td>
+        <td><p>GitHub username or organization name.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>repository</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the GitHub repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>tag_name</code></td>
+        <td><code>str</code></td>
+        <td><p>Tag name of the release.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>access_token</code></td>
+        <td><code>str</code></td>
+        <td><p>Personal access token for authentication. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The release ID if found, None otherwise.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">github_get_release_id_by_tag</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">tag_name</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetches the release ID by tag name for a given GitHub repository.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): GitHub username or organization name.</span>
+<span class="sd">        repository (str): Name of the GitHub repository.</span>
+<span class="sd">        tag_name (str): Tag name of the release.</span>
+<span class="sd">        access_token (str, optional): Personal access token for authentication. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The release ID if found, None otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">access_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">get_api_key</span><span class="p">(</span><span class="s2">&quot;GITHUB_API_TOKEN&quot;</span><span class="p">)</span>
+
+    <span class="c1"># GitHub API URL for fetching releases</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://api.github.com/repos/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repository</span><span class="si">}</span><span class="s2">/releases/tags/</span><span class="si">{</span><span class="n">tag_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Headers for authentication (optional)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;token </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span> <span class="k">if</span> <span class="n">access_token</span> <span class="k">else</span> <span class="p">{}</span>
+
+    <span class="c1"># Make the request to the GitHub API</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="c1"># Check if the request was successful</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">release_info</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">release_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Error: Unable to fetch release info for tag </span><span class="si">{</span><span class="n">tag_name</span><span class="si">}</span><span class="s2"> (Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h2 id="leafmap.common.github_raw_url" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">github_raw_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code>
 
@@ -25523,6 +26045,149 @@ Available parameters can be found at https://github.com/radiantearth/stac-api-sp
             <span class="s2">&quot;blob/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">url</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.github_upload_asset_to_release" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">github_upload_asset_to_release</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">release_id</span><span class="p">,</span> <span class="n">asset_path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.github_upload_asset_to_release" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Uploads an asset to a GitHub release.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>username</code></td>
+        <td><code>str</code></td>
+        <td><p>GitHub username or organization name.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>repository</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the GitHub repository.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>release_id</code></td>
+        <td><code>int</code></td>
+        <td><p>ID of the release to upload the asset to.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>asset_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to the asset file.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>access_token</code></td>
+        <td><code>str</code></td>
+        <td><p>Personal access token for authentication.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>dict</code></td>
+      <td><p>The response JSON from the GitHub API if the upload is successful.
+None: If the upload fails.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">github_upload_asset_to_release</span><span class="p">(</span>
+    <span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">release_id</span><span class="p">,</span> <span class="n">asset_path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uploads an asset to a GitHub release.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        username (str): GitHub username or organization name.</span>
+<span class="sd">        repository (str): Name of the GitHub repository.</span>
+<span class="sd">        release_id (int): ID of the release to upload the asset to.</span>
+<span class="sd">        asset_path (str): Path to the asset file.</span>
+
+<span class="sd">        access_token (str): Personal access token for authentication.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: The response JSON from the GitHub API if the upload is successful.</span>
+<span class="sd">        None: If the upload fails.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">access_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">get_api_key</span><span class="p">(</span><span class="s2">&quot;GITHUB_API_TOKEN&quot;</span><span class="p">)</span>
+    <span class="c1"># GitHub API URL for uploading release assets</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://uploads.github.com/repos/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repository</span><span class="si">}</span><span class="s2">/releases/</span><span class="si">{</span><span class="n">release_id</span><span class="si">}</span><span class="s2">/assets&quot;</span>
+
+    <span class="c1"># Extract the filename from the asset path</span>
+    <span class="n">asset_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">asset_path</span><span class="p">)</span>
+
+    <span class="c1"># Set the headers for the upload request</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;token </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/octet-stream&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Set the parameters for the upload request</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">asset_name</span><span class="p">}</span>
+
+    <span class="c1"># Check if the asset already exists</span>
+    <span class="n">assets</span> <span class="o">=</span> <span class="n">github_get_release_assets</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">release_id</span><span class="p">,</span> <span class="n">access_token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">assets</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">assets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">asset_name</span><span class="p">:</span>
+                <span class="n">github_delete_asset</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">repository</span><span class="p">,</span> <span class="n">asset</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">access_token</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="c1"># Open the asset file in binary mode</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asset_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">asset_file</span><span class="p">:</span>
+        <span class="c1"># Make the request to upload the asset</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">asset_file</span><span class="p">)</span>
+
+    <span class="c1"># Check if the request was successful</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully uploaded asset: </span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Unable to upload asset (Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
         </details>
     </div>
