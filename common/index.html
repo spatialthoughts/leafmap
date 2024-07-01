@@ -2052,6 +2052,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leafmap.common.image_to_geotiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      image_to_geotiff()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leafmap.common.image_to_numpy" class="md-nav__link">
     <span class="md-ellipsis">
       image_to_numpy()
@@ -8655,6 +8664,15 @@
   <a href="#leafmap.common.image_to_cog" class="md-nav__link">
     <span class="md-ellipsis">
       image_to_cog()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leafmap.common.image_to_geotiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      image_to_geotiff()
     </span>
   </a>
   
@@ -28591,6 +28609,149 @@ None, all bands are used.</p></td>
 
     <span class="n">dst_profile</span> <span class="o">=</span> <span class="n">cog_profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
     <span class="n">cog_translate</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dst_path</span><span class="p">,</span> <span class="n">dst_profile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="leafmap.common.image_to_geotiff" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">image_to_geotiff</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dst_path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">to_cog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#leafmap.common.image_to_geotiff" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Converts an image to a GeoTIFF file.</p>
+<p>This function takes an image in the form of a rasterio.io.DatasetReader object, and writes it to a GeoTIFF file
+at the specified destination path. The data type of the output GeoTIFF can be specified. Additional keyword
+arguments can be passed to customize the GeoTIFF profile.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>image</code></td>
+        <td><code>DatasetReader</code></td>
+        <td><p>The input image as a rasterio.io.DatasetReader object.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>dst_path</code></td>
+        <td><code>str</code></td>
+        <td><p>The destination path where the GeoTIFF file will be saved.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>dtype</code></td>
+        <td><code>Optional[str]</code></td>
+        <td><p>The data type for the output GeoTIFF file. If None, the data type of the input image
+will be used. Defaults to None.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>to_cog</code></td>
+        <td><code>bool</code></td>
+        <td><p>Whether to convert the output GeoTIFF to a Cloud Optimized GeoTIFF (COG). Defaults to True.</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>**kwargs</code></td>
+        <td></td>
+        <td><p>Additional keyword arguments to be included in the GeoTIFF profile.</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>ValueError</code></td>
+        <td><p>If the input image is not a rasterio.io.DatasetReader object.</p></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td><p>None</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>leafmap/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">image_to_geotiff</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dst_path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">to_cog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts an image to a GeoTIFF file.</span>
+
+<span class="sd">    This function takes an image in the form of a rasterio.io.DatasetReader object, and writes it to a GeoTIFF file</span>
+<span class="sd">    at the specified destination path. The data type of the output GeoTIFF can be specified. Additional keyword</span>
+<span class="sd">    arguments can be passed to customize the GeoTIFF profile.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (DatasetReader): The input image as a rasterio.io.DatasetReader object.</span>
+<span class="sd">        dst_path (str): The destination path where the GeoTIFF file will be saved.</span>
+<span class="sd">        dtype (Optional[str]): The data type for the output GeoTIFF file. If None, the data type of the input image</span>
+<span class="sd">            will be used. Defaults to None.</span>
+<span class="sd">        to_cog (bool): Whether to convert the output GeoTIFF to a Cloud Optimized GeoTIFF (COG). Defaults to True.</span>
+<span class="sd">        **kwargs: Additional keyword arguments to be included in the GeoTIFF profile.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the input image is not a rasterio.io.DatasetReader object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">rasterio</span>
+    <span class="kn">from</span> <span class="nn">rasterio.enums</span> <span class="kn">import</span> <span class="n">Resampling</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">DatasetReader</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The input image must be a rasterio.io.DatasetReader object.&quot;</span><span class="p">)</span>
+
+    <span class="n">dst_path</span> <span class="o">=</span> <span class="n">check_file_path</span><span class="p">(</span><span class="n">dst_path</span><span class="p">)</span>
+
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">profile</span>
+    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">profile</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtype</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">profile</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">dst_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">profile</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+        <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">to_cog</span><span class="p">:</span>
+        <span class="n">image_to_cog</span><span class="p">(</span><span class="n">dst_path</span><span class="p">,</span> <span class="n">dst_path</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
